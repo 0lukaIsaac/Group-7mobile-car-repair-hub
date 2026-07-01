@@ -54,15 +54,3 @@ The app declares the following permissions in `AndroidManifest.xml`, used for GP
 `ACCESS_COARSE_LOCATION`
 `ACCESS_BACKGROUND_LOCATION`
 These are requested at runtime on Android 6.0+ — no extra setup is needed to build, but you'll need to grant them on-device to test location features.
-8. Tech stack summary (for reference)
-Language: Kotlin 2.2.10
-UI: Jetpack Compose (BOM 2024.09.00), Material 3
-Navigation: Navigation Compose 2.9.5
-Backend: Supabase (Auth + Postgrest) 3.4.1, via Ktor client 3.1.3
-Location: Google Play Services Location 21.2.0
-Build system: Gradle 9.3.1 (via wrapper), Android Gradle Plugin 9.1.0
-Min/Target/Compile SDK: 26 / 36 / 36
-Troubleshooting
-"SDK location not found" — Open the project in Android Studio once so it can auto-generate `local.properties` with the correct `sdk.dir`, or set it manually to your SDK path (e.g. `C:\Users\<you>\AppData\Local\Android\Sdk` on Windows, `~/Library/Android/sdk` on macOS, `~/Android/Sdk` on Linux).
-Gradle sync fails / dependency download errors — Check your internet connection; corporate/campus networks sometimes block `dl.google.com` or `repo.maven.apache.org`.
-Build succeeds but login/data fails at runtime — Double-check `SUPABASE_URL` and `SUPABASE_ANON_KEY` in `local.properties`.
